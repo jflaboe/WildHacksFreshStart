@@ -3,7 +3,7 @@ import javax.swing.*;
 public class ClientTest {
 	public static void main(String args[]) {
 		Client c;
-		String ip = JOptionPane.showInputDialog("Enter the IP Address: ");
+		String ip = JOptionPane.showInputDialog("Enter the IPv4 Address: ");
 		
 		// View your own computer as a server
 		c = new Client(ip);//"127.0.0.1");
