@@ -1,0 +1,21 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "Knock enemy balls off the table",
+  "main": "Node.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jflaboe/WildHacksFreshStart.git"
+  },
+  "author": "jflaboe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jflaboe/WildHacksFreshStart/issues"
+  },
+  "homepage": "https://github.com/jflaboe/WildHacksFreshStart#readme"
+}
