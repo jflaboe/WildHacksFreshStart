@@ -5,8 +5,7 @@ public class ClientTest {
 		Client c;
 		String ip = JOptionPane.showInputDialog("Enter the IPv4 Address: ");
 		
-		// View your own computer as a server
-		c = new Client(ip);//"127.0.0.1");
+		c = new Client(ip);
 		c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		c.startRunning();
 		c.setVisible(true);

@@ -12,11 +12,11 @@ public class Client extends JFrame {
 	private ObjectInputStream input;
 	private String message = "";
 	private String serverIP;
-	private Socket connection;
+	private Socket socket;
 	
 	// Constructor
 	public Client(String host) {
-		super("Client Instant Messager");
+		super("Client Instant Messaging");
 		serverIP = host;
 		userText = new JTextField();
 		userText.setEditable(false);
@@ -58,17 +58,17 @@ public class Client extends JFrame {
 		
 		// Make a new socket
 		// Passes in IP address and Port on the server
-		connection = new Socket(InetAddress.getByName(serverIP), 6789);
-		showMessage("Connected to " + connection.getInetAddress().getHostName());
+		socket = new Socket(InetAddress.getByName(serverIP), 6789);
+		showMessage("Connected to " + socket.getInetAddress().getHostName());
 	}
 	
 	// Set up streams
 	private void setUpStreams() throws IOException{
 		
-		output = new ObjectOutputStream(connection.getOutputStream());
+		output = new ObjectOutputStream(socket.getOutputStream());
 		output.flush();
 		
-		input = new ObjectInputStream(connection.getInputStream());
+		input = new ObjectInputStream(socket.getInputStream());
 		showMessage("\n Streams are now set up! \n");
 	}
 	
@@ -89,7 +89,7 @@ public class Client extends JFrame {
 			}
 		}
 		// Ends the conversation when the client types END
-		while(!message.equals("SERVER - END"));
+		while(!message.equals("Server - END"));
 	}
 	
 	// Closing streams and sockets
@@ -101,7 +101,7 @@ public class Client extends JFrame {
 		try {
 			output.close();
 			input.close();
-			connection.close();
+			socket.close();
 		}
 		catch (IOException ioexception){
 			ioexception.printStackTrace();
