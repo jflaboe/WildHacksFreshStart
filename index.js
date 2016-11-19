@@ -12,28 +12,28 @@ http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
-io.on('connection', function(socket){
+io.sockets.on('connection', function(socket){
   console.log('a user connected');
   
 
-  io.on('set_up',function(data){
+  socket.on('set_up',function(data){
   	engine.players[data.num].up = data.up;
   })
-  io.on('set_right', function(data){
+  socket.on('set_right', function(data){
   	engine.players[data.num].right = data.right;
   })
-  io.on('set_left', function(data){
+  socket.on('set_left', function(data){
   	engine.players[data.num].left = data.left;
-  }
-  io.on('set_down',function(data){
+  })
+  socket.on('set_down',function(data){
   	engine.player[data.num].down = data.down;
   })
 
-  io.on('set_name', function(data){
+  socket.on('set_name', function(data){
 
   	var ind = addBall(data.name);
 
-  	io.emit('name_set', {id: ind});
+  	socket.emit('name_set', {id: ind});
   })
 
 
